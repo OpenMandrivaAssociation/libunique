@@ -1,15 +1,16 @@
 %define major 		0
-%define libname		%mklibname %name %major
-%define develname	%mklibname %name -d
+%define api 1.0
+%define libname		%mklibname unique %major
+%define develname	%mklibname unique -d
 
 Summary: 	Library for creating single instance applications
-Name: 		unique
-Version: 	1.0.6
+Name: 		libunique
+Version: 	1.0.8
 Release:	%mkrel 1
 URL: 		http://live.gnome.org/LibUnique
 License: 	LGPLv2+
 Group: 		System/Libraries
-Source0: 	http://www.gnome.org/~ebassi/source/%{name}-%{version}.tar.gz
+Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch0:		unique-1.0.6-fix-str-fmt.patch
 Buildroot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	dbus-glib-devel >= 0.70
@@ -30,7 +31,7 @@ Unique is a library for creating single instance applications.
 %package -n %{develname}
 Group:		Development/C
 Summary:	Header files for development with %name
-Provides:	%{name}-devel = %{version}
+Provides:	unique-devel = %{version}
 Requires:	%{libname} = %{version}
 
 %description -n %{develname}
@@ -51,8 +52,6 @@ rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
@@ -61,15 +60,15 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/lib%{name}*.so.%{major}*
+%{_libdir}/libunique-%api.so.%{major}*
 
 %files -n %{develname}
 %doc AUTHORS
-%docdir %{_datadir}/gtk-doc/html/%{name}
-%doc %{_datadir}/gtk-doc/html/%{name}/*
+%docdir %{_datadir}/gtk-doc/html/unique
+%doc %{_datadir}/gtk-doc/html/unique/*
 %defattr(-,root,root)
-%{_libdir}/lib%{name}*.so
-%{_libdir}/lib%{name}*.*a
-%{_libdir}/pkgconfig/%{name}*.pc
-%{_includedir}/%{name}-*
+%{_libdir}/libunique-%api.so
+%{_libdir}/libunique-%api.*a
+%{_libdir}/pkgconfig/unique-%api.pc
+%{_includedir}/unique-%api
 
