@@ -5,7 +5,7 @@
 
 Summary: 	Library for creating single instance applications
 Name: 		libunique
-Version: 	1.1.2
+Version: 	1.1.4
 Release:	%mkrel 1
 URL: 		http://live.gnome.org/LibUnique
 License: 	LGPLv2+
@@ -16,6 +16,7 @@ Buildroot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	gtk+2-devel >= 2.11.0
 BuildRequires:	glib2-devel >= 2.12.0
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk-doc
 
 %description
@@ -61,6 +62,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/libunique-%api.so.%{major}*
+%_libdir/girepository-1.0/Unique-%{api}.typelib
 
 %files -n %{develname}
 %doc AUTHORS
@@ -71,4 +73,4 @@ rm -rf %{buildroot}
 %{_libdir}/libunique-%api.*a
 %{_libdir}/pkgconfig/unique-%api.pc
 %{_includedir}/unique-%api
-
+%_datadir/gir-1.0/Unique-%api.gir
