@@ -17,6 +17,8 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	gtk+2-devel >= 2.11.0
 BuildRequires:	glib2-devel >= 2.12.0
 BuildRequires:	gobject-introspection-devel
+#gw Gtk-2.0.gir
+BuildRequires: gir-repository	
 BuildRequires:	gtk-doc
 
 %description
