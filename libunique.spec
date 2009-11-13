@@ -27,6 +27,7 @@ Unique is a library for creating single instance applications.
 %package -n	%{libname}
 Group:		System/Libraries
 Summary:	Library for creating single instance applications
+Conflicts: gir-repository < 0.6.5-3
 
 %description -n %{libname}
 Unique is a library for creating single instance applications.
@@ -36,6 +37,7 @@ Group:		Development/C
 Summary:	Header files for development with %name
 Provides:	unique-devel = %{version}
 Requires:	%{libname} = %{version}
+Conflicts: gir-repository < 0.6.5-3
 
 %description -n %{develname}
 Unique is a library for creating single instance applications.
