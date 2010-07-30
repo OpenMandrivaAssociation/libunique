@@ -6,7 +6,7 @@
 Summary: 	Library for creating single instance applications
 Name: 		libunique
 Version: 	1.1.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 URL: 		http://live.gnome.org/LibUnique
 License: 	LGPLv2+
 Group: 		System/Libraries
@@ -17,8 +17,6 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	gtk+2-devel >= 2.11.0
 BuildRequires:	glib2-devel >= 2.12.0
 BuildRequires:	gobject-introspection-devel
-#gw Gtk-2.0.gir
-BuildRequires: gir-repository	
 BuildRequires:	gtk-doc
 
 %description
