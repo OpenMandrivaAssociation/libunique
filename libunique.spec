@@ -45,7 +45,7 @@ Unique is a library for creating single instance applications.
 %patch0 -p0
 
 %build
-%configure2_5x
+%configure2_5x --enable-maintainer-flags=no
 %make
 
 %install
