@@ -44,6 +44,10 @@ Unique is a library for creating single instance applications.
 %setup -q
 %patch0 -p0
 
+# this is a hack for glib2.0 >= 2.31.0
+sed -i -e 's/-DG_DISABLE_DEPRECATED//g' \
+	./unique/Makefile.*
+
 %build
 %configure2_5x \
 	--disable-static \
