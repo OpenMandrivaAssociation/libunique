@@ -57,8 +57,8 @@ sed -i -e 's/-DG_DISABLE_DEPRECATED//g' \
 
 %install
 rm -rf %{buildroot}
-find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %makeinstall_std
+find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 
 %files -n %{libname}
 %{_libdir}/libunique-%api.so.%{major}*
