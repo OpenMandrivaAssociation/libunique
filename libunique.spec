@@ -6,7 +6,7 @@
 Summary: 	Library for creating single instance applications
 Name: 		libunique
 Version: 	1.1.6
-Release:	6
+Release:	7
 URL: 		http://live.gnome.org/LibUnique
 License: 	LGPLv2+
 Group: 		System/Libraries
@@ -57,7 +57,7 @@ sed -i -e 's/-DG_DISABLE_DEPRECATED//g' \
 
 %install
 rm -rf %{buildroot}
-
+find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %makeinstall_std
 
 %files -n %{libname}
@@ -69,7 +69,6 @@ rm -rf %{buildroot}
 %docdir %{_datadir}/gtk-doc/html/unique
 %doc %{_datadir}/gtk-doc/html/unique/*
 %{_libdir}/libunique-%api.so
-%{_libdir}/libunique-%api.*a
 %{_libdir}/pkgconfig/unique-%api.pc
 %{_includedir}/unique-%api
 %_datadir/gir-1.0/Unique-%api.gir
