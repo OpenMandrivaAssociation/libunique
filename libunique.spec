@@ -1,6 +1,6 @@
 %define major 		0
 %define api 1.0
-%define libname		%mklibname unique %major
+%define libname		%mklibname unique_%{api} %major
 %define develname	%mklibname unique -d
 
 Summary: 	Library for creating single instance applications
