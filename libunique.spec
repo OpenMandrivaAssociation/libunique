@@ -2,6 +2,7 @@
 %define api 1.0
 %define libname		%mklibname unique_%{api} %major
 %define develname	%mklibname unique -d
+%bcond_with	crosscompile
 
 Summary: 	Library for creating single instance applications
 Name: 		libunique
@@ -51,18 +52,22 @@ sed -i -e 's/-DG_DISABLE_DEPRECATED//g' \
 %build
 %configure2_5x \
 	--disable-static \
+%if %{with crosscompile}
+	--enable-introspection=no \
+%endif
 	--enable-maintainer-flags=no
 
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 
 %files -n %{libname}
 %{_libdir}/libunique-%api.so.%{major}*
+%if !%{with crosscompile}
 %_libdir/girepository-1.0/Unique-%{api}.typelib
+%endif
 
 %files -n %{develname}
 %doc AUTHORS
@@ -71,7 +76,9 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_libdir}/libunique-%api.so
 %{_libdir}/pkgconfig/unique-%api.pc
 %{_includedir}/unique-%api
+%if %!{with crosscompile}
 %_datadir/gir-1.0/Unique-%api.gir
+%endif
 
 
 %changelog
