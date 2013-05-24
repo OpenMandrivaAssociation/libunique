@@ -76,9 +76,9 @@ find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 %{_libdir}/libunique-%api.so
 %{_libdir}/pkgconfig/unique-%api.pc
 %{_includedir}/unique-%api
-%if %!{with crosscompile}
+#%if %!{with crosscompile}
 %_datadir/gir-1.0/Unique-%api.gir
-%endif
+#%endif
 
 
 %changelog
