@@ -10,7 +10,7 @@ Summary: 	Library for creating single instance applications
 Name: 		libunique
 Version: 	1.1.6
 Release:	25
-Url: 		http://live.gnome.org/LibUnique
+Url: 		https://live.gnome.org/LibUnique
 License: 	LGPLv2+
 Group: 		System/Libraries
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/libunique/%{url_ver}/%{name}-%{version}.tar.bz2
